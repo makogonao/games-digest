@@ -26,8 +26,8 @@ const Spinner = styled.div`
     &::after {
     border: 5px solid #5e5e5e;
     border-top: 5px solid #3b3b3b;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     content: "";
     border-radius: 50%;
     animation: ${rotate} 1s linear infinite;

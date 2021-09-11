@@ -1,6 +1,4 @@
 import styled from "styled-components";
-
-import Link from "next/link";
 import SearchContext from "../context";
 import GameLoadBlock from "./GameLoadBlock";
 
@@ -60,7 +58,6 @@ export default function GameList() {
     })
 
     const scrollHandler = (e) => {
-        
         if (pageArr.length < maxPage) {
             if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 1) {
                 settPageArr([...pageArr, pageArr.length + 1])

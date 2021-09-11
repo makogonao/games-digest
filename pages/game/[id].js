@@ -5,7 +5,7 @@ import Router from 'next/router'
 
 
 
-export default function game() {
+export default function Game() {
     const router = useRouter();
 
     return (

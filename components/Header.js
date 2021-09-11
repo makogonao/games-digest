@@ -137,7 +137,7 @@ export default function Header({changeSearchString, changeSortMethod, changePlat
                                     changePlatformId(event.target.value)
                                 )}
                             >
-                                <option value="0">Игровая платформа</option>
+                                <option value="0">Все игровые платформы</option>
                                 {platformsList.map((item) => (
                                     <option key={item.id} value={item.id}>{item.name}</option>
                                 ))}
