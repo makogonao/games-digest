@@ -15,7 +15,6 @@ const MyTile = styled.li`
     -moz-box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.21);
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.21);
 `;
-
 const TileInfoContainer = styled.div`
     margin-left: 10px;
     display: flex;
@@ -38,7 +37,6 @@ const TileInfoContainer = styled.div`
         margin-bottom: 0; 
     }
 `;
-
 const NoImage = styled.div`
     width: inherit;
     height: inherit;
@@ -48,7 +46,6 @@ const NoImage = styled.div`
     background-color: inherit;
 
 `
-
 const PosterContainer = styled.div`
     display: flex;
     align-items: center;

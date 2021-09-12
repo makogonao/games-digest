@@ -13,7 +13,7 @@ const MyInput = styled.input`
     border: none;
     height: 2.5rem;
     font-size: 1.2rem;
-    border-radius: 1rem;
+    border-radius: 5px;
     width: 100%;
     color: #3b3b3b;
     &::placeholder {
@@ -27,13 +27,13 @@ const MySelectContainer = styled.div`
     padding-right: 20px;
     padding-left: 20px;
     height: 2.5rem;
-    border-radius: 1rem;
+    border-radius: 5px;
 `;
 const MySelect = styled.select`
     border: none;
     height: 2.5rem;
     font-size: 1.2rem;
-    border-radius: 1rem;
+    border-radius: 5px;
     width: 100%;
     background-color: white;
     color: #3b3b3b;
@@ -43,7 +43,7 @@ const MyLogo = styled.h1`
     justify-content: center;
     margin: 10px;
     font-family: "Do Hyeon";
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 100;
     text-shadow: #3b3b3b 0 0 10px;
 `;
@@ -55,12 +55,12 @@ const MySearchContainer = styled.div`
     justify-content: space-around;
 `;
 const MyBtn = styled.button`
-    background-color: #bdbdbd;
+    background-color: ${(props) => props.active ? "#ffd359" : "#bdbdbd"};
     border: none;
     min-width: 2.5rem;
     height: 2.5rem;
     font-size: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 5px;
     margin-left: 10px;
     color: #3b3b3b;
 `;
@@ -74,11 +74,12 @@ export default function Header({changeSearchString, changeSortMethod, changePlat
     const [isShowAdvSearch, setIsShowAdvSearch] = useState(false);
     const [isReversSort, setIsReversSort] = useState(false);
     const [sortTheme, setSortTheme] = useState("rating");
-    const [platformsList, setPlatformsList] = useState([]);
 
     useEffect(()=>{
         changeSortMethod((!isReversSort ? "-" : "") + sortTheme), [isReversSort, sortTheme]
     })
+
+    const [platformsList, setPlatformsList] = useState([]);
 
     useEffect(() => {
         getPlatforms()
@@ -89,7 +90,6 @@ export default function Header({changeSearchString, changeSortMethod, changePlat
                 console.error(err);
             });
     }, [isShowAdvSearch]);
-
     
     const hideAdvSearch = () => {
         setIsShowAdvSearch(false);
@@ -108,7 +108,8 @@ export default function Header({changeSearchString, changeSortMethod, changePlat
                 />
                 <MyBtn
                     className="material-icons"
-                    onClick={() => (isShowAdvSearch ? hideAdvSearch() : showAdvSearch())
+                    active={isShowAdvSearch}
+                    onClick={() => {isShowAdvSearch ? hideAdvSearch() : showAdvSearch()}
                     }
                 >
                     tune

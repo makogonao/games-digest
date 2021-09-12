@@ -21,9 +21,7 @@ export async function getGameList(page, pageSize, searchString, platformsCount, 
     const searchStringResult = searchString === "" ? "" : `&search=${searchString}`
     const orderingResult = ordering === "" ? "" : `&ordering=${ordering}`
     const platformsCountResult = platformsCount == 0 ? "" : `&parent_platforms=${platformsCount}`
-
     const conditions = pageResult+pageSizeResult+searchStringResult+orderingResult+platformsCountResult
-
     const response = await fetch(`${URL}api/games?key=${key+conditions}&search_precise`, 
     {
         method: "GET",
@@ -33,6 +31,33 @@ export async function getGameList(page, pageSize, searchString, platformsCount, 
         },
     });
     const body = await response.json();
-    //console.log(body)
+    return body;
+}
+
+export async function getGameBySlug(slug) {
+
+    const response = await fetch(`${URL}api/games/${slug}?key=${key}`, 
+    {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Connection": "keep-alive",
+        },
+    });
+    const body = await response.json();
+    return body;
+}
+
+export async function getGameScreenshots(slug) {
+
+    const response = await fetch(`${URL}api/games/${slug}/screenshots?key=${key}`, 
+    {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Connection": "keep-alive",
+        },
+    });
+    const body = await response.json();
     return body;
 }
